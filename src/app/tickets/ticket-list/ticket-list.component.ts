@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketService } from '../../shared/services/ticket.service';
+import { TicketModel } from '../../shared/models/ticket.model';
 
 @Component({
   selector: 'app-ticket-list',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ticketService : TicketService) {
+  }
 
   ngOnInit() {
+    this.ticketService.getItems().subscribe((data) => {
+      this.ticketService.itemsList = data;
+    }); 
+   
+  }
+
+  onDelete(item : TicketModel){
+    this.ticketService.deleteItem(item.id).subscribe(() => 
+    this.ticketService.getItems().subscribe((data) => {
+      this.ticketService.itemsList = data;
+    }));
+  }
+
+  onEdit(item : TicketModel){
+    this.ticketService.selectedItem = {...item};
   }
 
 }

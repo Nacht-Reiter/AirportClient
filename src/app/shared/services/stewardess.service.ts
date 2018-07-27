@@ -8,7 +8,7 @@ export class StewardessService {
 
   selectedItem : StewardessModel;
   itemsList : StewardessModel[];
-  private URL : string = "http://localhost:51460/apiStewardesses/";
+  private URL : string = "http://localhost:51460/api/Stewardesses/";
   constructor(private httpClient: HttpClient) { }
 
   getItems(){

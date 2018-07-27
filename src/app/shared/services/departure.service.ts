@@ -8,7 +8,7 @@ export class DepartureService {
 
   selectedItem : DepartureModel;
   itemsList : DepartureModel[];
-  private URL : string = "http://localhost:51460/api/Departuress/";
+  private URL : string = "http://localhost:51460/api/Departures/";
   constructor(private httpClient: HttpClient) { }
 
   getItems(){
