@@ -6,24 +6,24 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class PilotService {
 
-  selectedPilot : PilotModel;
-  pilotsList : PilotModel[];
+  selectedItem : PilotModel;
+  itemsList : PilotModel[];
   private URL : string = "http://localhost:51460/api/Pilots/";
   constructor(private httpClient: HttpClient) { }
 
-  getPilots(){
+  getItems(){
       return this.httpClient.get<PilotModel[]>(this.URL);
   }
 
-  addPilot(item : PilotModel){
+  addItem(item : PilotModel){
     return this.httpClient.post(this.URL, item); 
   }
 
-  updatePilot(id: number, item : PilotModel) {
+  updateItem(id: number, item : PilotModel) {
     return this.httpClient.put(this.URL + id, item);
   }
 
-  deletePilot(id: number){
+  deleteItem(id: number){
     return this.httpClient.delete(this.URL + id);
   }
 }

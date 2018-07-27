@@ -19,19 +19,19 @@ export class PilotDetailsComponent implements OnInit {
 
   onSubmit(form: NgForm){
     if(form.value.id == null){
-      this.pilotService.addPilot(form.value)
+      this.pilotService.addItem(form.value)
       .subscribe(() => {
         this.resetForm(form);
-        this.pilotService.getPilots().subscribe((data) => {
-          this.pilotService.pilotsList = data;
+        this.pilotService.getItems().subscribe((data) => {
+          this.pilotService.itemsList = data;
         });
       });
       
     }
     else{
-      this.pilotService.updatePilot(form.value.id, form.value).subscribe(() =>
-        this.pilotService.getPilots().subscribe((data) => {
-          this.pilotService.pilotsList = data;
+      this.pilotService.updateItem(form.value.id, form.value).subscribe(() =>
+        this.pilotService.getItems().subscribe((data) => {
+          this.pilotService.itemsList = data;
       }));
       
     }
@@ -40,6 +40,6 @@ export class PilotDetailsComponent implements OnInit {
   resetForm(form?: NgForm){
     if(form != null)
       form.reset();
-    this.pilotService.selectedPilot = new PilotModel;
+    this.pilotService.selectedItem = new PilotModel;
   }
 }

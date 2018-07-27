@@ -15,22 +15,21 @@ export class PilotListComponent{
   }
 
   ngOnInit() {
-    this.pilotService.getPilots().subscribe((data) => {
-      this.pilotService.pilotsList = data;
+    this.pilotService.getItems().subscribe((data) => {
+      this.pilotService.itemsList = data;
     });
    
   }
 
   onDelete(item : PilotModel){
-    this.pilotService.deletePilot(item.id).subscribe(() => 
-    this.pilotService.getPilots().subscribe((data) => {
-      this.pilotService.pilotsList = data;
+    this.pilotService.deleteItem(item.id).subscribe(() => 
+    this.pilotService.getItems().subscribe((data) => {
+      this.pilotService.itemsList = data;
     }));
   }
 
   onEdit(item : PilotModel){
-    this.pilotService.selectedPilot = {...item};
-    console.log(this.pilotService)
+    this.pilotService.selectedItem = {...item};
   }
 
 }

@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PilotsComponent } from './pilots/pilots.component';
-import { SewardessesComponent } from './sewardesses/sewardesses.component';
+import { StewardessesComponent } from './stewardesses/stewardesses.component';
 import { CrewsComponent } from './crews/crews.component';
 import { AirCraftTypesComponent } from './air-craft-types/air-craft-types.component';
 import { AirCraftsComponent } from './air-crafts/air-crafts.component';
@@ -28,13 +28,14 @@ import { FlightDetailsComponent } from './flights/flight-details/flight-details.
 import { SewardessListComponent } from './stewardesses/sewardess-list/sewardess-list.component';
 import { SewardessDetailsComponent } from './stewardesses/sewardess-details/sewardess-details.component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
-import { TicketDetailsComponent } from './tickets/ticket-details/ticket-details.component'
+import { TicketDetailsComponent } from './tickets/ticket-details/ticket-details.component';
+import { IndexComponent } from './index/index.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     PilotsComponent,
-    SewardessesComponent,
+    StewardessesComponent,
     CrewsComponent,
     AirCraftTypesComponent,
     AirCraftsComponent,
@@ -56,7 +57,8 @@ import { TicketDetailsComponent } from './tickets/ticket-details/ticket-details.
     SewardessListComponent,
     SewardessDetailsComponent,
     TicketListComponent,
-    TicketDetailsComponent
+    TicketDetailsComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
