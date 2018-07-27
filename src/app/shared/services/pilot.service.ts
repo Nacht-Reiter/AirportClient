@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PilotModel } from '../models/pilot.model';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class PilotService {
