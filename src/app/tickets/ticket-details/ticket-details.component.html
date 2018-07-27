@@ -1,3 +1,22 @@
-<p>
-  ticket-details works!
-</p>
+<form  #ticketForm = "ngForm" (ngSubmit)="onSubmit(ticketForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="ticketService.selectedItem.id">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="number"  class="form-control" name="flightNumber" #flightNumber="ngModel" [(ngModel)]="ticketService.selectedItem.flightNumber" placeholder="Flight Number" required>
+      <div class="text-danger" *ngIf="flightNumber.invalid && flightNumber.touched">This field is required</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="number"  class="form-control" name="price" #price="ngModel" [(ngModel)] = "ticketService.selectedItem.price" placeholder="Price" required>
+      <div class="text-danger" *ngIf="price.invalid && price.touched">This field is required</div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button  [disabled]="!ticketForm.valid"  type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+        <button type="button" class="btn btn-lg btn-block" (click) = "resetForm(ticketForm)">Reset</button>
+    </div>
+  </div>
+</form>

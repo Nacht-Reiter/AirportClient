@@ -1,3 +1,28 @@
-<p>
-  stewardess-details works!
-</p>
+<form  #stewardessForm = "ngForm" (ngSubmit)="onSubmit(stewardessForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="stewardessService.selectedItem.id">
+  <input type="hidden" name="crewId" #crewId="ngModel" [(ngModel)]="stewardessService.selectedItem.crewId">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="firstName" #firstName="ngModel" [(ngModel)]="stewardessService.selectedItem.firstName" placeholder="First Name" required>
+      <div class="text-danger" *ngIf="firstName.invalid && firstName.touched">This field is required</div>
+    </div>
+    <div class="form-group col-md-6">
+        <input class="form-control" name="lastName" #lastName="ngModel" [(ngModel)] = "stewardessService.selectedItem.lastName" placeholder="Last Name" required>
+        <div class="text-danger" *ngIf="lastName.invalid && lastName.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <input type="date" class="form-control" name="birthday" #birthday="ngModel" [(ngModel)] = "stewardessService.selectedItem.birthday" placeholder="Birthday" required>
+      <div class="text-danger" *ngIf="birthday.invalid && birthday.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button  [disabled]="!stewardessForm.valid"  type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+        <button type="button" class="btn btn-lg btn-block" (click) = "resetForm(stewardessForm)">Reset</button>
+    </div>
+  </div>
+</form>

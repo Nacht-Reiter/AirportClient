@@ -1,3 +1,32 @@
-<p>
-  flight-details works!
-</p>
+<form  #flightForm = "ngForm" (ngSubmit)="onSubmit(flightForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="flightService.selectedItem.id">
+  <input type="hidden" name="ticketsId" #id="ngModel" [(ngModel)]="flightService.selectedItem.ticketsId">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="entryPoint" #entryPoint="ngModel" [(ngModel)]="flightService.selectedItem.entryPoint" placeholder="Entry Point" required>
+      <div class="text-danger" *ngIf="entryPoint.invalid && entryPoint.touched">This field is required</div>
+    </div>
+    <div class="form-group col-md-6">
+        <input type="date" class="form-control" name="departureTime" #departureTime="ngModel" [(ngModel)] = "flightService.selectedItem.departureTime" placeholder="Departure Time" required>
+        <div class="text-danger" *ngIf="departureTime.invalid && departureTime.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="destination" #destination="ngModel" [(ngModel)]="flightService.selectedItem.destination" placeholder="Destination" required>
+      <div class="text-danger" *ngIf="destination.invalid && destination.touched">This field is required</div>
+    </div>
+    <div class="form-group col-md-6">
+        <input type="date" class="form-control" name="arrivalTime" #arrivalTime="ngModel" [(ngModel)] = "flightService.selectedItem.arrivalTime" placeholder="Arrival Time" required>
+        <div class="text-danger" *ngIf="arrivalTime.invalid && arrivalTime.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button  [disabled]="!flightForm.valid"  type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+        <button type="button" class="btn btn-lg btn-block" (click) = "resetForm(flightForm)">Reset</button>
+    </div>
+  </div>
+</form>

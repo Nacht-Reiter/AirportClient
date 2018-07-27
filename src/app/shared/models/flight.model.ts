@@ -4,5 +4,5 @@ export class FlightModel {
     departureTime : Date;
     destination : string;
     arrivalTime : Date;
-    ticketsId : number[];
+    ticketsId : number[] = [];
 }
