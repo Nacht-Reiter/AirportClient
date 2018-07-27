@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { CrewService } from '../shared/services/crew.service';
 
 @Component({
   selector: 'app-crews',
   templateUrl: './crews.component.html',
-  styleUrls: ['./crews.component.css']
+  styleUrls: ['./crews.component.css'],
+  providers: [CrewService]
 })
 export class CrewsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private crewService: CrewService) { }
 
   ngOnInit() {
   }

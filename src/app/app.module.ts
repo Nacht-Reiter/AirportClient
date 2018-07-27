@@ -25,8 +25,8 @@ import { DepartureListComponent } from './departures/departure-list/departure-li
 import { DepartureDetailsComponent } from './departures/departure-details/departure-details.component';
 import { FlightListComponent } from './flights/flight-list/flight-list.component';
 import { FlightDetailsComponent } from './flights/flight-details/flight-details.component';
-import { SewardessListComponent } from './stewardesses/sewardess-list/sewardess-list.component';
-import { SewardessDetailsComponent } from './stewardesses/sewardess-details/sewardess-details.component';
+import { StewardessListComponent } from './stewardesses/stewardess-list/stewardess-list.component';
+import { StewardessDetailsComponent } from './stewardesses/stewardess-details/stewardess-details.component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
 import { TicketDetailsComponent } from './tickets/ticket-details/ticket-details.component';
 import { IndexComponent } from './index/index.component'
@@ -54,8 +54,8 @@ import { IndexComponent } from './index/index.component'
     DepartureDetailsComponent,
     FlightListComponent,
     FlightDetailsComponent,
-    SewardessListComponent,
-    SewardessDetailsComponent,
+    StewardessListComponent,
+    StewardessDetailsComponent,
     TicketListComponent,
     TicketDetailsComponent,
     IndexComponent

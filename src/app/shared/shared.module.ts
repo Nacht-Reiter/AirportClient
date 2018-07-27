@@ -7,7 +7,7 @@ import { TicketService } from './services/ticket.service';
 import { AirCraftService } from './services/air-craft.service';
 import { AirCraftTypeService } from './services/air-craft-type.service';
 import { FlightService } from './services/flight.service';
-import { DepartureService } from './services/departures.service';
+import { DepartureService } from './services/departure.service';
 import { CrewService } from './services/crew.service';
 
 @NgModule({
