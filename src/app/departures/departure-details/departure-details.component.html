@@ -1,0 +1,31 @@
+<form  #departureForm = "ngForm" (ngSubmit)="onSubmit(departureForm)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="departureService.selectedItem.id">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="number" class="form-control" name="flightNumber" #flightNumber="ngModel" [(ngModel)]="departureService.selectedItem.flightNumber" placeholder="Flight Number" required>
+        <div class="text-danger" *ngIf="flightNumber.invalid && flightNumber.touched">This field is required</div>
+      </div>
+      <div class="form-group col-md-6">
+          <input type="number" class="form-control" name="airCraftId" #airCraftId="ngModel" [(ngModel)] = "departureService.selectedItem.airCraftId" placeholder="AirCraft Id" required>
+          <div class="text-danger" *ngIf="airCraftId.invalid && airCraftId.touched">This field is required</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="date" class="form-control" name="departureDate" #departureDate="ngModel" [(ngModel)] = "departureService.selectedItem.departureDate" placeholder="Departure Date" required>
+        <div class="text-danger" *ngIf="departureDate.invalid && departureDate.touched">This field is required</div>
+      </div>
+      <div class="form-group col-md-6">
+          <input type="number" class="form-control" name="crewId" #crewId="ngModel" [(ngModel)] = "departureService.selectedItem.crewId" placeholder="Crew Id" required>
+          <div class="text-danger" *ngIf="crewId.invalid && crewId.touched">This field is required</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <button  [disabled]="!departureForm.valid"  type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+      </div>
+      <div class="form-group col-md-4">
+          <button type="button" class="btn btn-lg btn-block" (click) = "resetForm(departureForm)">Reset</button>
+      </div>
+    </div>
+  </form>

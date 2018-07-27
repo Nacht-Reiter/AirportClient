@@ -1,0 +1,11 @@
+<table class="table table-sm table-hover">
+    <tr *ngFor="let item of airCraftTypeService.itemsList">
+        
+        <td>{{item.model}}</td>
+        <td>{{item.passengersCapacity}}</td>
+        <td>
+          <a class="btn" (click)="onEdit(item)"><i class="far fa-edit"></i></a>
+          <a class="btn text-danger " (click)="onDelete(item)"><i class="fas fa-ban"></i></a>
+        </td>
+    </tr>
+  </table>

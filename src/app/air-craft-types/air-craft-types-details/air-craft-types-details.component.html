@@ -1,0 +1,27 @@
+<form  #airCraftTypeForm = "ngForm" (ngSubmit)="onSubmit(airCraftTypeForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="airCraftTypeService.selectedItem.id">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input  type="number"  class="form-control" name="passengersCapacity" #passengersCapacity="ngModel" [(ngModel)]="airCraftTypeService.selectedItem.passengersCapacity" placeholder="Passengers Capacity" required>
+      <div class="text-danger" *ngIf="passengersCapacity.invalid && passengersCapacity.touched">This field is required</div>
+    </div>
+    <div class="form-group col-md-6">
+        <input  type="number"  class="form-control" name="cargoCapacity" #cargoCapacity="ngModel" [(ngModel)] = "airCraftTypeService.selectedItem.cargoCapacity" placeholder="Cargo Capacity" required>
+        <div class="text-danger" *ngIf="cargoCapacity.invalid && cargoCapacity.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <input class="form-control" name="model" #model="ngModel" [(ngModel)] = "airCraftTypeService.selectedItem.model" placeholder="Model" required>
+      <div class="text-danger" *ngIf="model.invalid && model.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button  [disabled]="!airCraftTypeForm.valid"  type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+        <button type="button" class="btn btn-lg btn-block" (click) = "resetForm(airCraftTypeForm)">Reset</button>
+    </div>
+  </div>
+</form>

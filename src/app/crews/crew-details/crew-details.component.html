@@ -1,0 +1,18 @@
+<form  #crewForm = "ngForm" (ngSubmit)="onSubmit(crewForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="crewService.selectedItem.id">
+  <input type="hidden" name="stewardessesId" #id="ngModel" [(ngModel)]="crewService.selectedItem.stewardessesId">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <input type="number" class="form-control" name="pilotId" #pilotId="ngModel" [(ngModel)] = "crewService.selectedItem.pilotId" placeholder="Pilot Id" required>
+      <div class="text-danger" *ngIf="pilotId.invalid && pilotId.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button  [disabled]="!crewForm.valid"  type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+        <button type="button" class="btn btn-lg btn-block" (click) = "resetForm(crewForm)">Reset</button>
+    </div>
+  </div>
+</form>

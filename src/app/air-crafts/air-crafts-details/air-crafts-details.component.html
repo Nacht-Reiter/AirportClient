@@ -1,0 +1,31 @@
+<form  #airCraftForm = "ngForm" (ngSubmit)="onSubmit(airCraftForm)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="airCraftService.selectedItem.id">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="airCraftService.selectedItem.name" placeholder="Name" required>
+        <div class="text-danger" *ngIf="name.invalid && name.touched">This field is required</div>
+      </div>
+      <div class="form-group col-md-6">
+          <input type="number" class="form-control" name="airCraftTypeId" #airCraftTypeId="ngModel" [(ngModel)] = "airCraftService.selectedItem.airCraftTypeId" placeholder="AirCraft Type Id" required>
+          <div class="text-danger" *ngIf="airCraftTypeId.invalid && airCraftTypeId.touched">This field is required</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="date" class="form-control" name="manufactured" #manufactured="ngModel" [(ngModel)] = "airCraftService.selectedItem.manufactured" placeholder="Manufactured" required>
+        <div class="text-danger" *ngIf="manufactured.invalid && manufactured.touched">This field is required</div>
+      </div>
+      <div class="form-group col-md-6">
+          <input type="number" class="form-control" name="age" #age="ngModel" [(ngModel)] = "airCraftService.selectedItem.age" placeholder="Age" required>
+          <div class="text-danger" *ngIf="age.invalid && age.touched">This field is required</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <button  [disabled]="!airCraftForm.valid"  type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+      </div>
+      <div class="form-group col-md-4">
+          <button type="button" class="btn btn-lg btn-block" (click) = "resetForm(airCraftForm)">Reset</button>
+      </div>
+    </div>
+  </form>

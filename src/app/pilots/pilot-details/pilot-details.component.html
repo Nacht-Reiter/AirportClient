@@ -1,0 +1,31 @@
+<form  #pilotForm = "ngForm" (ngSubmit)="onSubmit(pilotForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="pilotService.selectedItem.id">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="firstName" #firstName="ngModel" [(ngModel)]="pilotService.selectedItem.firstName" placeholder="First Name" required>
+      <div class="text-danger" *ngIf="firstName.invalid && firstName.touched">This field is required</div>
+    </div>
+    <div class="form-group col-md-6">
+        <input class="form-control" name="lastName" #lastName="ngModel" [(ngModel)] = "pilotService.selectedItem.lastName" placeholder="Last Name" required>
+        <div class="text-danger" *ngIf="lastName.invalid && lastName.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="date" class="form-control" name="birthday" #birthday="ngModel" [(ngModel)] = "pilotService.selectedItem.birthday" placeholder="Birthday" required>
+        <div class="text-danger" *ngIf="birthday.invalid && birthday.touched">This field is required</div>
+      </div>
+      <div class="form-group col-md-6">
+          <input type="number" class="form-control" name="expirience" #expirience="ngModel" [(ngModel)] = "pilotService.selectedItem.expirience" placeholder="Expirience" required>
+          <div class="text-danger" *ngIf="expirience.invalid && expirience.touched">This field is required</div>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8">
+          <button  [disabled]="!pilotForm.valid"  type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+        </div>
+        <div class="form-group col-md-4">
+            <button type="button" class="btn btn-lg btn-block" (click) = "resetForm(pilotForm)">Reset</button>
+        </div>
+      </div>
+</form>
